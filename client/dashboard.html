@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fintech App - Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-gray-100">
+  <div class="container mx-auto p-4">
+    <h1 id="dashboard-title" class="text-3xl font-bold mb-4">Fintech Dashboard</h1>
+    <button id="logout-btn" class="bg-red-500 text-white p-2 rounded hover:bg-red-600 mb-4">Logout</button>
+
+    <div class="mb-4">
+      <h2 class="text-xl font-semibold mb-2">User Accounts</h2>
+      <div id="accounts" class="bg-white rounded-lg shadow p-4"></div>
+    </div>
+
+    <div class="mb-4">
+      <h2 class="text-xl font-semibold mb-2">Create New Account</h2>
+      <form id="create-account-form" class="bg-white rounded-lg shadow p-4">
+        <input type="text" id="account-name" placeholder="Account Name" class="w-full p-2 mb-2 border rounded" required>
+        <input type="number" id="initial-balance" placeholder="Initial Balance" class="w-full p-2 mb-2 border rounded"
+          required>
+        <input type="text" id="account-pin" placeholder="6-Digit PIN" class="w-full p-2 mb-2 border rounded" required
+          pattern="\d{6}" title="PIN must be 6 digits">
+        <button type="submit" class="w-full bg-green-500 text-white p-2 rounded hover:bg-green-600">Create
+          Account</button>
+      </form>
+    </div>
+
+    <div class="mb-4">
+      <h2 class="text-xl font-semibold mb-2">New Transaction</h2>
+      <form id="transaction-form" class="bg-white rounded-lg shadow p-4">
+        <select id="account-select" class="w-full p-2 mb-2 border rounded">
+          <option value="">Select an account</option>
+        </select>
+
+        <select id="transaction-type" class="w-full p-2 mb-2 border rounded">
+          <option value="deposit">Deposit</option>
+          <option value="withdrawal">Withdrawal</option>
+        </select>
+        <input type="number" id="amount" placeholder="Amount" class="w-full p-2 mb-2 border rounded" min="0" step="any">
+        <input type="text" id="transaction-account-pin" placeholder="6-Digit PIN" class="w-full p-2 mb-2 border rounded"
+          required pattern="\d{6}" title="PIN must be 6 digits">
+        <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Submit
+          Transaction</button>
+      </form>
+      <div id="error-display" class="text-red-500 mt-2"></div>
+    </div>
+
+    <div>
+      <h2 class="text-xl font-semibold mb-2">Recent Transactions</h2>
+      <div id="transactions" class="bg-white rounded-lg shadow p-4"></div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+  <script src="userinfo.js"></script>
+  <script src="createAccount.js"></script>
+  <script src="transactions.js"></script>
+  <script src="logout.js"></script>
+</body>
+
+</html>
